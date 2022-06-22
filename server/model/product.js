@@ -1,25 +1,20 @@
 const mongoose= require("mongoose");
 
 
-const studentSchema= new mongoose.Schema({
-    student_name:{
+const ProductSchema= new mongoose.Schema({
+    product_name:{
         type:String,
         required:true
     },
-    
-    student_email:{
+    brand:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
-   student_phone:{
+    quantity:{
         type:Number,
         required:true
     },
-    subject:{
-        type:String,
-        required:true
-    },
-    
 
     createdAt:{
         type:Date,
@@ -30,5 +25,5 @@ const studentSchema= new mongoose.Schema({
         default:Date.now
     }
 })
-const Student= mongoose.model("student", studentSchema);
-module.exports=Student;
+const Product= mongoose.model("product", ProductSchema);
+module.exports=Product;
